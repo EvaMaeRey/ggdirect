@@ -280,7 +280,8 @@ gapminder::gapminder %>%
   aes(x = continent) + 
   aes(y = median_pop) +
   geom_col() +
-  geom_coltrace(aes(group = year))
+  geom_coltrace(aes(group = year)) +
+  fac
 
 
 ```
