@@ -1,0 +1,47 @@
+---
+title: "Template Title"
+author: "Your Name"
+date: "The Date"
+output: output_format
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(flipbookr)
+```
+
+## Adding an RMarkdown Template
+
+This file is what a user will see when they select your template. Make sure that you update the fields in the yaml header. In particular you will want to update the `output` field to whatever format your template requires.
+
+This is a good place to demonstrate special features that your template provides. Ideally it should knit out-of-the-box, or at least contain clear instructions as to what needs changing.
+
+Finally, be sure to remove this message!
+
+`r chunk_reveal("prep_data")`
+
+```{r prep_data, include = F}
+Titanic %>% 
+  data.frame() %>% 
+  uncount(Freq) %>% 
+  sample_frac(1, replace = F) %>% 
+  janitor::clean_names() -> 
+tidy_titanic  
+```
+
+---    
+
+`r chunk_reveal("count_percent")`
+
+```{r count_percent}
+tidy_titanic %>% 
+  ggplot() +
+  aes(x = 1) + 
+  geom_bar(position = "dodge") + 
+  aes(x = survived) + 
+  aes(color = sex) + 
+  geom_text_count_percent(nudge_y = 10) +
+  coord_cartesian(clip = "off")
+```
+
