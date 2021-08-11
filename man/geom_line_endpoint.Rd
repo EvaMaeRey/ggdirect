@@ -4,19 +4,44 @@
 \alias{geom_line_endpoint}
 \title{geom_line_endpoint}
 \usage{
-geom_line_endpoint(mapping = NULL, data = NULL,
-  position = "identity", na.rm = FALSE, show.legend = NA,
-  inherit.aes = TRUE, ...)
+geom_line_endpoint(
+  mapping = NULL,
+  data = NULL,
+  position = "identity",
+  na.rm = FALSE,
+  show.legend = NA,
+  inherit.aes = TRUE,
+  ...
+)
 }
 \arguments{
 \item{...}{}
+}
+\value{
+
 }
 \description{
 add a charming endpoint to your lines
 }
 \examples{
+# functions
+StatLineendpoint
+geom_line_endpoint
 library(ggplot2)
-ggplot(cars) + aes(x = speed, y = dist) + geom_line() + geom_line_endpoint()
-ggplot(cars) + aes(x = speed, y = dist, color = dist > 15) + geom_line() + geom_line_endpoint()
-ggplot(cars) + aes(x = speed, y = dist, color = dist > 15, linetype = speed > 16) + geom_line() + geom_line_endpoint()
+ggplot(cars) +
+   aes(x = speed, y = dist) +
+   geom_line() +
+   geom_line_endpoint()
+
+ggplot(cars) +
+    aes(x = speed, y = dist, color = dist > 15) +
+    geom_line() +
+    geom_line_endpoint()
+
+ggplot(cars) +
+     aes(x = speed, y = dist,
+         color = dist > 15,
+         linetype = speed > 16) +
+     geom_line() +
+     geom_line_endpoint()
 }

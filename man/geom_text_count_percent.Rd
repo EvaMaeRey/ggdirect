@@ -4,17 +4,26 @@
 \alias{geom_text_count_percent}
 \title{geom_text_count_percent}
 \usage{
-geom_text_count_percent(nudge_y = 0, lineheight = 0.85,
+geom_text_count_percent(
+  nudge_y = 0,
+  lineheight = 0.85,
   position = ggplot2::position_dodge2(width = 0.9, preserve = "single"),
-  ...)
+  ...
+)
 }
 \arguments{
 \item{...}{}
+}
+\value{
+
 }
 \description{
 Add label which is the count as well as percentage.  Acts like geom_bar() but text label at the position of the top of the bar.  Percentage is calculated within facet panels.
 }
 \examples{
 library(ggplot2)
-ggplot(mtcars) + aes(x = cyl) + geom_bar() + geom_text_count_percent(nudge_y = .5)
+ggplot(mtcars) +
+    aes(x = cyl) +
+    geom_bar() +
+    geom_text_count_percent(nudge_y = .5)
 }

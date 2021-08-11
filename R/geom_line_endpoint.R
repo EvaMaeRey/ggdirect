@@ -1,4 +1,3 @@
-### StatLineendpoint
 
 StatLineendpoint <- ggplot2::ggproto("StatLineendpoint",
                                ggplot2::Stat,
@@ -28,11 +27,26 @@ StatLineendpoint <- ggplot2::ggproto("StatLineendpoint",
 #' @export
 #'
 #' @examples
-#' library(ggplot2)
-#' ggplot(cars) + aes(x = speed, y = dist) + geom_line() + geom_line_endpoint()
-#' ggplot(cars) + aes(x = speed, y = dist, color = dist > 15) + geom_line() + geom_line_endpoint()
-#' ggplot(cars) + aes(x = speed, y = dist, color = dist > 15, linetype = speed > 16) + geom_line() + geom_line_endpoint()
+#' # functions
+#' geom_line_endpoint
 
+#' library(ggplot2)
+#' ggplot(cars) +
+#'    aes(x = speed, y = dist) +
+#'    geom_line() +
+#'    geom_line_endpoint()
+#'
+#' ggplot(cars) +
+#'     aes(x = speed, y = dist, color = dist > 15) +
+#'     geom_line() +
+#'     geom_line_endpoint()
+#'
+#' ggplot(cars) +
+#'      aes(x = speed, y = dist,
+#'          color = dist > 15,
+#'          linetype = speed > 16) +
+#'      geom_line() +
+#'      geom_line_endpoint()
 geom_line_endpoint <- function(mapping = NULL, data = NULL,
                         position = "identity", na.rm = FALSE, show.legend = NA,
                         inherit.aes = TRUE, ...) {

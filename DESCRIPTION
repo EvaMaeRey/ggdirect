@@ -10,5 +10,6 @@ License: What license is it under?
 Encoding: UTF-8
 LazyData: true
 Imports: 
-    ggplot2
-RoxygenNote: 6.1.1
+    ggplot2,
+    magrittr
+RoxygenNote: 7.1.1
