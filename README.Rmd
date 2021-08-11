@@ -1,0 +1,100 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+
+```{r, echo = F}
+library(ggplot2)
+library(ggstamp)
+library(magick)
+"https://images.unsplash.com/photo-1618214694290-04e1c31a59ab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=889&q=80" %>% 
+  magick::image_read() %>%
+  # magick::image_flop() %>% 
+  magick::image_emboss() %>% 
+  magick::image_write(format = "png", quality = 100) ->
+bullet_png
+
+ggcanvas() +
+  stamp_png(png = bullet_png, width = 3.5, 
+            x0= -.75) +
+  stamp_polygon_holes(x0y0 = pos_honeycomb(n = 2500, ncol = 50, width = .05,
+   x0 = -1, y0 = 1), fill = "oldlace", radius = .024,
+   alpha = .4) +
+  stamp_polygon_inverse(radius_outer = Inf) +
+  stamp_polygon(color = "darkred", 
+                fill = "lightgoldenrod1",
+                alpha = 0,
+                size = 3) + 
+  # stamp_arrow(x = -.75, xend = .75,
+  #             y = 0, yend = 0,
+  #             size = 4, 
+  #             headlength = .2, 
+  #             angle = 20,
+  #             color = "darkseagreen", 
+  #             type = "closed"
+  #             ) + 
+  stamp_text(#y = .35, x = -.25, 
+    x = -.3, y = -.34,
+             label = "ggdirect", 
+             size = 12, 
+             color = "dodgerblue4",
+             vjust = 0) +
+  theme_void()
+```
+
+# ggdirect
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of ggdirect is to ...
+
+## Installation
+
+You can install the released version of ggdirect from [CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("ggdirect")
+```
+
+And the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("EvaMaeRey/ggdirect")
+```
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+# library(ggdirect)
+## basic example code
+```
+
+What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+
+```{r cars}
+summary(cars)
+```
+
+You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/master/examples>.
+
+You can also embed plots, for example:
+
+```{r pressure, echo = FALSE}
+plot(pressure)
+```
+
+In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
