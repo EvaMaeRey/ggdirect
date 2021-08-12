@@ -25,7 +25,6 @@ add a charming endpoint to your lines
 }
 \examples{
 # functions
-StatLineendpoint
 geom_line_endpoint
 library(ggplot2)
 ggplot(cars) +

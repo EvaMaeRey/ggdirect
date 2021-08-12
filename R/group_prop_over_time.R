@@ -15,10 +15,10 @@ StatPropovertime <- ggplot2::ggproto("StatPropovertime",
                                      compute_panel = function(data, scales) {
 
                                        data %>%
-                                         group_by(x, y) %>%
-                                         summarise(fill = sum(fill)) %>%
-                                         mutate(fill = fill/sum(fill)) %>%
-                                         ungroup()
+                                         dplyr::group_by(x, y) %>%
+                                         dplyr::summarise(fill = sum(fill)) %>%
+                                         dplyr::mutate(fill = fill/sum(fill)) %>%
+                                         dplyr::ungroup()
 
                                      },
 
@@ -39,6 +39,8 @@ StatPropovertime <- ggplot2::ggproto("StatPropovertime",
 #' @export
 #'
 #' @examples
+#' library(ggplot2)
+#' library(magrittr)
 #' gapminder::gapminder %>%
 #' ggplot() +
 #'   aes(x = year) +
@@ -64,11 +66,11 @@ StatPropovertimetext <- ggplot2::ggproto("StatPropovertimetext",
                                      compute_panel = function(data, scales) {
 
                                        data %>%
-                                         group_by(x, y) %>%
-                                         summarise(fill = sum(fill)) %>%
-                                         mutate(fill = fill/sum(fill)) %>%
-                                         ungroup() %>%
-                                         mutate(label = fill %>% round(2))
+                                         dplyr::group_by(x, y) %>%
+                                         dplyr::summarise(fill = sum(fill)) %>%
+                                         dplyr::mutate(fill = fill/sum(fill)) %>%
+                                         dplyr::ungroup() %>%
+                                         dplyr::mutate(label = fill %>% round(2))
 
                                      },
 
@@ -89,6 +91,8 @@ StatPropovertimetext <- ggplot2::ggproto("StatPropovertimetext",
 #' @export
 #'
 #' @examples
+#' library(ggplot2)
+#' library(magrittr)
 #' gapminder::gapminder %>%
 #' ggplot() +
 #'   aes(x = year) +
@@ -109,6 +113,16 @@ StatPropovertimetext <- ggplot2::ggproto("StatPropovertimetext",
 #'   aes(label = pop) +
 #'   geom_tile_prop_over_time_text() +
 #'   facet_wrap(facets = vars(gdpPercap > 10000))
+#'
+#' gapminder::gapminder %>%
+#' ggplot() +
+#'   aes(x = year) +
+#'   aes(y = continent) +
+#'   aes(fill = 1, label = 1) + # use 1 to count times continent is observed
+#'   geom_tile_prop_over_time(color = "oldlace") +
+#'   labs(fill = "proportion\nof countries\nin each time\nperiod") +
+#'   geom_tile_prop_over_time_text()
+#'
 geom_tile_prop_over_time_text <- function(mapping = NULL, data = NULL,
                                      position = "identity", na.rm = FALSE, show.legend = NA,
                                      inherit.aes = TRUE, ...) {
