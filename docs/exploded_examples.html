@@ -1,0 +1,1794 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>ggdirect</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Exploded Examples" />
+    <script src="libs/header-attrs-2.6/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/hygge.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/ninjutsu.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# ggdirect
+### Exploded Examples
+
+---
+
+
+
+
+
+---
+
+count: false
+ 
+### geom_bubble
+.panel1-geom_bubble_1-auto[
+
+```r
+# using function
+*library(ggplot2)
+```
+]
+ 
+.panel2-geom_bubble_1-auto[
+
+]
+
+---
+count: false
+ 
+### geom_bubble
+.panel1-geom_bubble_1-auto[
+
+```r
+# using function
+library(ggplot2)
+*ggplot(cars)
+```
+]
+ 
+.panel2-geom_bubble_1-auto[
+![](exploded_examples_files/figure-html/geom_bubble_1_auto_02_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+### geom_bubble
+.panel1-geom_bubble_1-auto[
+
+```r
+# using function
+library(ggplot2)
+ggplot(cars) +
+* aes(x = speed, y = dist)
+```
+]
+ 
+.panel2-geom_bubble_1-auto[
+![](exploded_examples_files/figure-html/geom_bubble_1_auto_03_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+### geom_bubble
+.panel1-geom_bubble_1-auto[
+
+```r
+# using function
+library(ggplot2)
+ggplot(cars) +
+  aes(x = speed, y = dist) +
+* geom_bubble(size = 7,
+*   alpha = .85,
+*   color = "white",
+*   fill = "plum2"
+*  )
+```
+]
+ 
+.panel2-geom_bubble_1-auto[
+![](exploded_examples_files/figure-html/geom_bubble_1_auto_04_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+### geom_bubble
+.panel1-geom_bubble_1-auto[
+
+```r
+# using function
+library(ggplot2)
+ggplot(cars) +
+  aes(x = speed, y = dist) +
+  geom_bubble(size = 7,
+    alpha = .85,
+    color = "white",
+    fill = "plum2"
+   ) +
+*theme_minimal()
+```
+]
+ 
+.panel2-geom_bubble_1-auto[
+![](exploded_examples_files/figure-html/geom_bubble_1_auto_05_output-1.png)&lt;!-- --&gt;
+]
+
+&lt;style&gt;
+.panel1-geom_bubble_1-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-geom_bubble_1-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-geom_bubble_1-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+
+
+---
+
+count: false
+ 
+### geom_bubble
+.panel1-geom_bubble_2-auto[
+
+```r
+# without function
+*library(ggplot2)
+```
+]
+ 
+.panel2-geom_bubble_2-auto[
+
+]
+
+---
+count: false
+ 
+### geom_bubble
+.panel1-geom_bubble_2-auto[
+
+```r
+# without function
+library(ggplot2)
+*ggplot(cars)
+```
+]
+ 
+.panel2-geom_bubble_2-auto[
+![](exploded_examples_files/figure-html/geom_bubble_2_auto_02_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+### geom_bubble
+.panel1-geom_bubble_2-auto[
+
+```r
+# without function
+library(ggplot2)
+ggplot(cars) +
+* aes(x = speed, y = dist)
+```
+]
+ 
+.panel2-geom_bubble_2-auto[
+![](exploded_examples_files/figure-html/geom_bubble_2_auto_03_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+### geom_bubble
+.panel1-geom_bubble_2-auto[
+
+```r
+# without function
+library(ggplot2)
+ggplot(cars) +
+  aes(x = speed, y = dist) +
+* geom_point(shape = 21,size = 7,
+*   alpha = .85,
+*   color = "white",
+*   fill = "plum2")
+```
+]
+ 
+.panel2-geom_bubble_2-auto[
+![](exploded_examples_files/figure-html/geom_bubble_2_auto_04_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+### geom_bubble
+.panel1-geom_bubble_2-auto[
+
+```r
+# without function
+library(ggplot2)
+ggplot(cars) +
+  aes(x = speed, y = dist) +
+  geom_point(shape = 21,size = 7,
+    alpha = .85,
+    color = "white",
+    fill = "plum2")
+*geom_bubble
+```
+]
+ 
+.panel2-geom_bubble_2-auto[
+![](exploded_examples_files/figure-html/geom_bubble_2_auto_05_output-1.png)&lt;!-- --&gt;
+
+```
+function(fill = "grey35", ...)  {
+  geom_point(shape = 21, fill = fill, ...)
+}
+&lt;bytecode: 0x7fe8da281268&gt;
+&lt;environment: namespace:ggdirect&gt;
+```
+]
+
+&lt;style&gt;
+.panel1-geom_bubble_2-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-geom_bubble_2-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-geom_bubble_2-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+
+
+---
+
+count: false
+ 
+### geom_line_endpoint
+.panel1-geom_line_endpoint_3-auto[
+
+```r
+# functions
+*ggdirect:::StatLineendpoint
+```
+]
+ 
+.panel2-geom_line_endpoint_3-auto[
+
+```
+&lt;ggproto object: Class StatLineendpoint, Stat, gg&gt;
+    aesthetics: function
+    compute_group: function
+    compute_layer: function
+    compute_panel: function
+    default_aes: uneval
+    extra_params: na.rm
+    finish_layer: function
+    non_missing_aes: 
+    optional_aes: 
+    parameters: function
+    required_aes: x y
+    retransform: TRUE
+    setup_data: function
+    setup_params: function
+    super:  &lt;ggproto object: Class Stat, gg&gt;
+```
+]
+
+---
+count: false
+ 
+### geom_line_endpoint
+.panel1-geom_line_endpoint_3-auto[
+
+```r
+# functions
+ggdirect:::StatLineendpoint
+*geom_line_endpoint
+```
+]
+ 
+.panel2-geom_line_endpoint_3-auto[
+
+```
+&lt;ggproto object: Class StatLineendpoint, Stat, gg&gt;
+    aesthetics: function
+    compute_group: function
+    compute_layer: function
+    compute_panel: function
+    default_aes: uneval
+    extra_params: na.rm
+    finish_layer: function
+    non_missing_aes: 
+    optional_aes: 
+    parameters: function
+    required_aes: x y
+    retransform: TRUE
+    setup_data: function
+    setup_params: function
+    super:  &lt;ggproto object: Class Stat, gg&gt;
+```
+
+```
+function(mapping = NULL, data = NULL,
+                        position = "identity", na.rm = FALSE, show.legend = NA,
+                        inherit.aes = TRUE, ...) {
+
+  ggplot2::layer(
+    stat = StatLineendpoint, geom = ggplot2::GeomPoint, data = data, mapping = mapping,
+    position = position, show.legend = show.legend, inherit.aes = inherit.aes,
+    params = list(na.rm = na.rm, ...)
+  )
+
+}
+&lt;bytecode: 0x7fe8db104498&gt;
+&lt;environment: namespace:ggdirect&gt;
+```
+]
+
+---
+count: false
+ 
+### geom_line_endpoint
+.panel1-geom_line_endpoint_3-auto[
+
+```r
+# functions
+ggdirect:::StatLineendpoint
+geom_line_endpoint
+*library(ggplot2)
+```
+]
+ 
+.panel2-geom_line_endpoint_3-auto[
+
+```
+&lt;ggproto object: Class StatLineendpoint, Stat, gg&gt;
+    aesthetics: function
+    compute_group: function
+    compute_layer: function
+    compute_panel: function
+    default_aes: uneval
+    extra_params: na.rm
+    finish_layer: function
+    non_missing_aes: 
+    optional_aes: 
+    parameters: function
+    required_aes: x y
+    retransform: TRUE
+    setup_data: function
+    setup_params: function
+    super:  &lt;ggproto object: Class Stat, gg&gt;
+```
+
+```
+function(mapping = NULL, data = NULL,
+                        position = "identity", na.rm = FALSE, show.legend = NA,
+                        inherit.aes = TRUE, ...) {
+
+  ggplot2::layer(
+    stat = StatLineendpoint, geom = ggplot2::GeomPoint, data = data, mapping = mapping,
+    position = position, show.legend = show.legend, inherit.aes = inherit.aes,
+    params = list(na.rm = na.rm, ...)
+  )
+
+}
+&lt;bytecode: 0x7fe8db104498&gt;
+&lt;environment: namespace:ggdirect&gt;
+```
+]
+
+---
+count: false
+ 
+### geom_line_endpoint
+.panel1-geom_line_endpoint_3-auto[
+
+```r
+# functions
+ggdirect:::StatLineendpoint
+geom_line_endpoint
+library(ggplot2)
+*ggplot(cars)
+```
+]
+ 
+.panel2-geom_line_endpoint_3-auto[
+
+```
+&lt;ggproto object: Class StatLineendpoint, Stat, gg&gt;
+    aesthetics: function
+    compute_group: function
+    compute_layer: function
+    compute_panel: function
+    default_aes: uneval
+    extra_params: na.rm
+    finish_layer: function
+    non_missing_aes: 
+    optional_aes: 
+    parameters: function
+    required_aes: x y
+    retransform: TRUE
+    setup_data: function
+    setup_params: function
+    super:  &lt;ggproto object: Class Stat, gg&gt;
+```
+
+```
+function(mapping = NULL, data = NULL,
+                        position = "identity", na.rm = FALSE, show.legend = NA,
+                        inherit.aes = TRUE, ...) {
+
+  ggplot2::layer(
+    stat = StatLineendpoint, geom = ggplot2::GeomPoint, data = data, mapping = mapping,
+    position = position, show.legend = show.legend, inherit.aes = inherit.aes,
+    params = list(na.rm = na.rm, ...)
+  )
+
+}
+&lt;bytecode: 0x7fe8db104498&gt;
+&lt;environment: namespace:ggdirect&gt;
+```
+
+![](exploded_examples_files/figure-html/geom_line_endpoint_3_auto_04_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+### geom_line_endpoint
+.panel1-geom_line_endpoint_3-auto[
+
+```r
+# functions
+ggdirect:::StatLineendpoint
+geom_line_endpoint
+library(ggplot2)
+ggplot(cars) +
+*  aes(x = speed, y = dist)
+```
+]
+ 
+.panel2-geom_line_endpoint_3-auto[
+
+```
+&lt;ggproto object: Class StatLineendpoint, Stat, gg&gt;
+    aesthetics: function
+    compute_group: function
+    compute_layer: function
+    compute_panel: function
+    default_aes: uneval
+    extra_params: na.rm
+    finish_layer: function
+    non_missing_aes: 
+    optional_aes: 
+    parameters: function
+    required_aes: x y
+    retransform: TRUE
+    setup_data: function
+    setup_params: function
+    super:  &lt;ggproto object: Class Stat, gg&gt;
+```
+
+```
+function(mapping = NULL, data = NULL,
+                        position = "identity", na.rm = FALSE, show.legend = NA,
+                        inherit.aes = TRUE, ...) {
+
+  ggplot2::layer(
+    stat = StatLineendpoint, geom = ggplot2::GeomPoint, data = data, mapping = mapping,
+    position = position, show.legend = show.legend, inherit.aes = inherit.aes,
+    params = list(na.rm = na.rm, ...)
+  )
+
+}
+&lt;bytecode: 0x7fe8db104498&gt;
+&lt;environment: namespace:ggdirect&gt;
+```
+
+![](exploded_examples_files/figure-html/geom_line_endpoint_3_auto_05_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+### geom_line_endpoint
+.panel1-geom_line_endpoint_3-auto[
+
+```r
+# functions
+ggdirect:::StatLineendpoint
+geom_line_endpoint
+library(ggplot2)
+ggplot(cars) +
+   aes(x = speed, y = dist) +
+*  geom_line()
+```
+]
+ 
+.panel2-geom_line_endpoint_3-auto[
+
+```
+&lt;ggproto object: Class StatLineendpoint, Stat, gg&gt;
+    aesthetics: function
+    compute_group: function
+    compute_layer: function
+    compute_panel: function
+    default_aes: uneval
+    extra_params: na.rm
+    finish_layer: function
+    non_missing_aes: 
+    optional_aes: 
+    parameters: function
+    required_aes: x y
+    retransform: TRUE
+    setup_data: function
+    setup_params: function
+    super:  &lt;ggproto object: Class Stat, gg&gt;
+```
+
+```
+function(mapping = NULL, data = NULL,
+                        position = "identity", na.rm = FALSE, show.legend = NA,
+                        inherit.aes = TRUE, ...) {
+
+  ggplot2::layer(
+    stat = StatLineendpoint, geom = ggplot2::GeomPoint, data = data, mapping = mapping,
+    position = position, show.legend = show.legend, inherit.aes = inherit.aes,
+    params = list(na.rm = na.rm, ...)
+  )
+
+}
+&lt;bytecode: 0x7fe8db104498&gt;
+&lt;environment: namespace:ggdirect&gt;
+```
+
+![](exploded_examples_files/figure-html/geom_line_endpoint_3_auto_06_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+### geom_line_endpoint
+.panel1-geom_line_endpoint_3-auto[
+
+```r
+# functions
+ggdirect:::StatLineendpoint
+geom_line_endpoint
+library(ggplot2)
+ggplot(cars) +
+   aes(x = speed, y = dist) +
+   geom_line() +
+*  geom_line_endpoint()
+```
+]
+ 
+.panel2-geom_line_endpoint_3-auto[
+
+```
+&lt;ggproto object: Class StatLineendpoint, Stat, gg&gt;
+    aesthetics: function
+    compute_group: function
+    compute_layer: function
+    compute_panel: function
+    default_aes: uneval
+    extra_params: na.rm
+    finish_layer: function
+    non_missing_aes: 
+    optional_aes: 
+    parameters: function
+    required_aes: x y
+    retransform: TRUE
+    setup_data: function
+    setup_params: function
+    super:  &lt;ggproto object: Class Stat, gg&gt;
+```
+
+```
+function(mapping = NULL, data = NULL,
+                        position = "identity", na.rm = FALSE, show.legend = NA,
+                        inherit.aes = TRUE, ...) {
+
+  ggplot2::layer(
+    stat = StatLineendpoint, geom = ggplot2::GeomPoint, data = data, mapping = mapping,
+    position = position, show.legend = show.legend, inherit.aes = inherit.aes,
+    params = list(na.rm = na.rm, ...)
+  )
+
+}
+&lt;bytecode: 0x7fe8db104498&gt;
+&lt;environment: namespace:ggdirect&gt;
+```
+
+![](exploded_examples_files/figure-html/geom_line_endpoint_3_auto_07_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+### geom_line_endpoint
+.panel1-geom_line_endpoint_3-auto[
+
+```r
+# functions
+ggdirect:::StatLineendpoint
+geom_line_endpoint
+library(ggplot2)
+ggplot(cars) +
+   aes(x = speed, y = dist) +
+   geom_line() +
+   geom_line_endpoint()
+*ggplot(cars)
+```
+]
+ 
+.panel2-geom_line_endpoint_3-auto[
+
+```
+&lt;ggproto object: Class StatLineendpoint, Stat, gg&gt;
+    aesthetics: function
+    compute_group: function
+    compute_layer: function
+    compute_panel: function
+    default_aes: uneval
+    extra_params: na.rm
+    finish_layer: function
+    non_missing_aes: 
+    optional_aes: 
+    parameters: function
+    required_aes: x y
+    retransform: TRUE
+    setup_data: function
+    setup_params: function
+    super:  &lt;ggproto object: Class Stat, gg&gt;
+```
+
+```
+function(mapping = NULL, data = NULL,
+                        position = "identity", na.rm = FALSE, show.legend = NA,
+                        inherit.aes = TRUE, ...) {
+
+  ggplot2::layer(
+    stat = StatLineendpoint, geom = ggplot2::GeomPoint, data = data, mapping = mapping,
+    position = position, show.legend = show.legend, inherit.aes = inherit.aes,
+    params = list(na.rm = na.rm, ...)
+  )
+
+}
+&lt;bytecode: 0x7fe8db104498&gt;
+&lt;environment: namespace:ggdirect&gt;
+```
+
+![](exploded_examples_files/figure-html/geom_line_endpoint_3_auto_08_output-1.png)&lt;!-- --&gt;![](exploded_examples_files/figure-html/geom_line_endpoint_3_auto_08_output-2.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+### geom_line_endpoint
+.panel1-geom_line_endpoint_3-auto[
+
+```r
+# functions
+ggdirect:::StatLineendpoint
+geom_line_endpoint
+library(ggplot2)
+ggplot(cars) +
+   aes(x = speed, y = dist) +
+   geom_line() +
+   geom_line_endpoint()
+ggplot(cars) +
+*   aes(x = speed, y = dist, color = dist &gt; 15)
+```
+]
+ 
+.panel2-geom_line_endpoint_3-auto[
+
+```
+&lt;ggproto object: Class StatLineendpoint, Stat, gg&gt;
+    aesthetics: function
+    compute_group: function
+    compute_layer: function
+    compute_panel: function
+    default_aes: uneval
+    extra_params: na.rm
+    finish_layer: function
+    non_missing_aes: 
+    optional_aes: 
+    parameters: function
+    required_aes: x y
+    retransform: TRUE
+    setup_data: function
+    setup_params: function
+    super:  &lt;ggproto object: Class Stat, gg&gt;
+```
+
+```
+function(mapping = NULL, data = NULL,
+                        position = "identity", na.rm = FALSE, show.legend = NA,
+                        inherit.aes = TRUE, ...) {
+
+  ggplot2::layer(
+    stat = StatLineendpoint, geom = ggplot2::GeomPoint, data = data, mapping = mapping,
+    position = position, show.legend = show.legend, inherit.aes = inherit.aes,
+    params = list(na.rm = na.rm, ...)
+  )
+
+}
+&lt;bytecode: 0x7fe8db104498&gt;
+&lt;environment: namespace:ggdirect&gt;
+```
+
+![](exploded_examples_files/figure-html/geom_line_endpoint_3_auto_09_output-1.png)&lt;!-- --&gt;![](exploded_examples_files/figure-html/geom_line_endpoint_3_auto_09_output-2.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+### geom_line_endpoint
+.panel1-geom_line_endpoint_3-auto[
+
+```r
+# functions
+ggdirect:::StatLineendpoint
+geom_line_endpoint
+library(ggplot2)
+ggplot(cars) +
+   aes(x = speed, y = dist) +
+   geom_line() +
+   geom_line_endpoint()
+ggplot(cars) +
+    aes(x = speed, y = dist, color = dist &gt; 15) +
+*   geom_line()
+```
+]
+ 
+.panel2-geom_line_endpoint_3-auto[
+
+```
+&lt;ggproto object: Class StatLineendpoint, Stat, gg&gt;
+    aesthetics: function
+    compute_group: function
+    compute_layer: function
+    compute_panel: function
+    default_aes: uneval
+    extra_params: na.rm
+    finish_layer: function
+    non_missing_aes: 
+    optional_aes: 
+    parameters: function
+    required_aes: x y
+    retransform: TRUE
+    setup_data: function
+    setup_params: function
+    super:  &lt;ggproto object: Class Stat, gg&gt;
+```
+
+```
+function(mapping = NULL, data = NULL,
+                        position = "identity", na.rm = FALSE, show.legend = NA,
+                        inherit.aes = TRUE, ...) {
+
+  ggplot2::layer(
+    stat = StatLineendpoint, geom = ggplot2::GeomPoint, data = data, mapping = mapping,
+    position = position, show.legend = show.legend, inherit.aes = inherit.aes,
+    params = list(na.rm = na.rm, ...)
+  )
+
+}
+&lt;bytecode: 0x7fe8db104498&gt;
+&lt;environment: namespace:ggdirect&gt;
+```
+
+![](exploded_examples_files/figure-html/geom_line_endpoint_3_auto_10_output-1.png)&lt;!-- --&gt;![](exploded_examples_files/figure-html/geom_line_endpoint_3_auto_10_output-2.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+### geom_line_endpoint
+.panel1-geom_line_endpoint_3-auto[
+
+```r
+# functions
+ggdirect:::StatLineendpoint
+geom_line_endpoint
+library(ggplot2)
+ggplot(cars) +
+   aes(x = speed, y = dist) +
+   geom_line() +
+   geom_line_endpoint()
+ggplot(cars) +
+    aes(x = speed, y = dist, color = dist &gt; 15) +
+    geom_line() +
+*   geom_line_endpoint()
+```
+]
+ 
+.panel2-geom_line_endpoint_3-auto[
+
+```
+&lt;ggproto object: Class StatLineendpoint, Stat, gg&gt;
+    aesthetics: function
+    compute_group: function
+    compute_layer: function
+    compute_panel: function
+    default_aes: uneval
+    extra_params: na.rm
+    finish_layer: function
+    non_missing_aes: 
+    optional_aes: 
+    parameters: function
+    required_aes: x y
+    retransform: TRUE
+    setup_data: function
+    setup_params: function
+    super:  &lt;ggproto object: Class Stat, gg&gt;
+```
+
+```
+function(mapping = NULL, data = NULL,
+                        position = "identity", na.rm = FALSE, show.legend = NA,
+                        inherit.aes = TRUE, ...) {
+
+  ggplot2::layer(
+    stat = StatLineendpoint, geom = ggplot2::GeomPoint, data = data, mapping = mapping,
+    position = position, show.legend = show.legend, inherit.aes = inherit.aes,
+    params = list(na.rm = na.rm, ...)
+  )
+
+}
+&lt;bytecode: 0x7fe8db104498&gt;
+&lt;environment: namespace:ggdirect&gt;
+```
+
+![](exploded_examples_files/figure-html/geom_line_endpoint_3_auto_11_output-1.png)&lt;!-- --&gt;![](exploded_examples_files/figure-html/geom_line_endpoint_3_auto_11_output-2.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+### geom_line_endpoint
+.panel1-geom_line_endpoint_3-auto[
+
+```r
+# functions
+ggdirect:::StatLineendpoint
+geom_line_endpoint
+library(ggplot2)
+ggplot(cars) +
+   aes(x = speed, y = dist) +
+   geom_line() +
+   geom_line_endpoint()
+ggplot(cars) +
+    aes(x = speed, y = dist, color = dist &gt; 15) +
+    geom_line() +
+    geom_line_endpoint()
+*ggplot(cars)
+```
+]
+ 
+.panel2-geom_line_endpoint_3-auto[
+
+```
+&lt;ggproto object: Class StatLineendpoint, Stat, gg&gt;
+    aesthetics: function
+    compute_group: function
+    compute_layer: function
+    compute_panel: function
+    default_aes: uneval
+    extra_params: na.rm
+    finish_layer: function
+    non_missing_aes: 
+    optional_aes: 
+    parameters: function
+    required_aes: x y
+    retransform: TRUE
+    setup_data: function
+    setup_params: function
+    super:  &lt;ggproto object: Class Stat, gg&gt;
+```
+
+```
+function(mapping = NULL, data = NULL,
+                        position = "identity", na.rm = FALSE, show.legend = NA,
+                        inherit.aes = TRUE, ...) {
+
+  ggplot2::layer(
+    stat = StatLineendpoint, geom = ggplot2::GeomPoint, data = data, mapping = mapping,
+    position = position, show.legend = show.legend, inherit.aes = inherit.aes,
+    params = list(na.rm = na.rm, ...)
+  )
+
+}
+&lt;bytecode: 0x7fe8db104498&gt;
+&lt;environment: namespace:ggdirect&gt;
+```
+
+![](exploded_examples_files/figure-html/geom_line_endpoint_3_auto_12_output-1.png)&lt;!-- --&gt;![](exploded_examples_files/figure-html/geom_line_endpoint_3_auto_12_output-2.png)&lt;!-- --&gt;![](exploded_examples_files/figure-html/geom_line_endpoint_3_auto_12_output-3.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+### geom_line_endpoint
+.panel1-geom_line_endpoint_3-auto[
+
+```r
+# functions
+ggdirect:::StatLineendpoint
+geom_line_endpoint
+library(ggplot2)
+ggplot(cars) +
+   aes(x = speed, y = dist) +
+   geom_line() +
+   geom_line_endpoint()
+ggplot(cars) +
+    aes(x = speed, y = dist, color = dist &gt; 15) +
+    geom_line() +
+    geom_line_endpoint()
+ggplot(cars) +
+*    aes(x = speed, y = dist,
+*        color = dist &gt; 15,
+*        linetype = speed &gt; 16)
+```
+]
+ 
+.panel2-geom_line_endpoint_3-auto[
+
+```
+&lt;ggproto object: Class StatLineendpoint, Stat, gg&gt;
+    aesthetics: function
+    compute_group: function
+    compute_layer: function
+    compute_panel: function
+    default_aes: uneval
+    extra_params: na.rm
+    finish_layer: function
+    non_missing_aes: 
+    optional_aes: 
+    parameters: function
+    required_aes: x y
+    retransform: TRUE
+    setup_data: function
+    setup_params: function
+    super:  &lt;ggproto object: Class Stat, gg&gt;
+```
+
+```
+function(mapping = NULL, data = NULL,
+                        position = "identity", na.rm = FALSE, show.legend = NA,
+                        inherit.aes = TRUE, ...) {
+
+  ggplot2::layer(
+    stat = StatLineendpoint, geom = ggplot2::GeomPoint, data = data, mapping = mapping,
+    position = position, show.legend = show.legend, inherit.aes = inherit.aes,
+    params = list(na.rm = na.rm, ...)
+  )
+
+}
+&lt;bytecode: 0x7fe8db104498&gt;
+&lt;environment: namespace:ggdirect&gt;
+```
+
+![](exploded_examples_files/figure-html/geom_line_endpoint_3_auto_13_output-1.png)&lt;!-- --&gt;![](exploded_examples_files/figure-html/geom_line_endpoint_3_auto_13_output-2.png)&lt;!-- --&gt;![](exploded_examples_files/figure-html/geom_line_endpoint_3_auto_13_output-3.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+### geom_line_endpoint
+.panel1-geom_line_endpoint_3-auto[
+
+```r
+# functions
+ggdirect:::StatLineendpoint
+geom_line_endpoint
+library(ggplot2)
+ggplot(cars) +
+   aes(x = speed, y = dist) +
+   geom_line() +
+   geom_line_endpoint()
+ggplot(cars) +
+    aes(x = speed, y = dist, color = dist &gt; 15) +
+    geom_line() +
+    geom_line_endpoint()
+ggplot(cars) +
+     aes(x = speed, y = dist,
+         color = dist &gt; 15,
+         linetype = speed &gt; 16) +
+*    geom_line()
+```
+]
+ 
+.panel2-geom_line_endpoint_3-auto[
+
+```
+&lt;ggproto object: Class StatLineendpoint, Stat, gg&gt;
+    aesthetics: function
+    compute_group: function
+    compute_layer: function
+    compute_panel: function
+    default_aes: uneval
+    extra_params: na.rm
+    finish_layer: function
+    non_missing_aes: 
+    optional_aes: 
+    parameters: function
+    required_aes: x y
+    retransform: TRUE
+    setup_data: function
+    setup_params: function
+    super:  &lt;ggproto object: Class Stat, gg&gt;
+```
+
+```
+function(mapping = NULL, data = NULL,
+                        position = "identity", na.rm = FALSE, show.legend = NA,
+                        inherit.aes = TRUE, ...) {
+
+  ggplot2::layer(
+    stat = StatLineendpoint, geom = ggplot2::GeomPoint, data = data, mapping = mapping,
+    position = position, show.legend = show.legend, inherit.aes = inherit.aes,
+    params = list(na.rm = na.rm, ...)
+  )
+
+}
+&lt;bytecode: 0x7fe8db104498&gt;
+&lt;environment: namespace:ggdirect&gt;
+```
+
+![](exploded_examples_files/figure-html/geom_line_endpoint_3_auto_14_output-1.png)&lt;!-- --&gt;![](exploded_examples_files/figure-html/geom_line_endpoint_3_auto_14_output-2.png)&lt;!-- --&gt;![](exploded_examples_files/figure-html/geom_line_endpoint_3_auto_14_output-3.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+### geom_line_endpoint
+.panel1-geom_line_endpoint_3-auto[
+
+```r
+# functions
+ggdirect:::StatLineendpoint
+geom_line_endpoint
+library(ggplot2)
+ggplot(cars) +
+   aes(x = speed, y = dist) +
+   geom_line() +
+   geom_line_endpoint()
+ggplot(cars) +
+    aes(x = speed, y = dist, color = dist &gt; 15) +
+    geom_line() +
+    geom_line_endpoint()
+ggplot(cars) +
+     aes(x = speed, y = dist,
+         color = dist &gt; 15,
+         linetype = speed &gt; 16) +
+     geom_line() +
+*    geom_line_endpoint()
+```
+]
+ 
+.panel2-geom_line_endpoint_3-auto[
+
+```
+&lt;ggproto object: Class StatLineendpoint, Stat, gg&gt;
+    aesthetics: function
+    compute_group: function
+    compute_layer: function
+    compute_panel: function
+    default_aes: uneval
+    extra_params: na.rm
+    finish_layer: function
+    non_missing_aes: 
+    optional_aes: 
+    parameters: function
+    required_aes: x y
+    retransform: TRUE
+    setup_data: function
+    setup_params: function
+    super:  &lt;ggproto object: Class Stat, gg&gt;
+```
+
+```
+function(mapping = NULL, data = NULL,
+                        position = "identity", na.rm = FALSE, show.legend = NA,
+                        inherit.aes = TRUE, ...) {
+
+  ggplot2::layer(
+    stat = StatLineendpoint, geom = ggplot2::GeomPoint, data = data, mapping = mapping,
+    position = position, show.legend = show.legend, inherit.aes = inherit.aes,
+    params = list(na.rm = na.rm, ...)
+  )
+
+}
+&lt;bytecode: 0x7fe8db104498&gt;
+&lt;environment: namespace:ggdirect&gt;
+```
+
+![](exploded_examples_files/figure-html/geom_line_endpoint_3_auto_15_output-1.png)&lt;!-- --&gt;![](exploded_examples_files/figure-html/geom_line_endpoint_3_auto_15_output-2.png)&lt;!-- --&gt;![](exploded_examples_files/figure-html/geom_line_endpoint_3_auto_15_output-3.png)&lt;!-- --&gt;
+]
+
+&lt;style&gt;
+.panel1-geom_line_endpoint_3-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-geom_line_endpoint_3-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-geom_line_endpoint_3-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+
+
+---
+
+count: false
+ 
+### geom_ring
+.panel1-geom_ring_4-auto[
+
+```r
+# using function
+*library(ggplot2)
+```
+]
+ 
+.panel2-geom_ring_4-auto[
+
+]
+
+---
+count: false
+ 
+### geom_ring
+.panel1-geom_ring_4-auto[
+
+```r
+# using function
+library(ggplot2)
+*ggplot(cars)
+```
+]
+ 
+.panel2-geom_ring_4-auto[
+![](exploded_examples_files/figure-html/geom_ring_4_auto_02_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+### geom_ring
+.panel1-geom_ring_4-auto[
+
+```r
+# using function
+library(ggplot2)
+ggplot(cars) +
+* aes(x = speed, y = dist)
+```
+]
+ 
+.panel2-geom_ring_4-auto[
+![](exploded_examples_files/figure-html/geom_ring_4_auto_03_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+### geom_ring
+.panel1-geom_ring_4-auto[
+
+```r
+# using function
+library(ggplot2)
+ggplot(cars) +
+  aes(x = speed, y = dist) +
+* geom_ring(size = 7, color = "slateblue")
+```
+]
+ 
+.panel2-geom_ring_4-auto[
+![](exploded_examples_files/figure-html/geom_ring_4_auto_04_output-1.png)&lt;!-- --&gt;
+]
+
+&lt;style&gt;
+.panel1-geom_ring_4-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-geom_ring_4-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-geom_ring_4-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+
+
+---
+
+count: false
+ 
+### geom_ring
+.panel1-geom_ring_5-auto[
+
+```r
+# without function
+*library(ggplot2)
+```
+]
+ 
+.panel2-geom_ring_5-auto[
+
+]
+
+---
+count: false
+ 
+### geom_ring
+.panel1-geom_ring_5-auto[
+
+```r
+# without function
+library(ggplot2)
+*ggplot(cars)
+```
+]
+ 
+.panel2-geom_ring_5-auto[
+![](exploded_examples_files/figure-html/geom_ring_5_auto_02_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+### geom_ring
+.panel1-geom_ring_5-auto[
+
+```r
+# without function
+library(ggplot2)
+ggplot(cars) +
+* aes(x = speed, y = dist)
+```
+]
+ 
+.panel2-geom_ring_5-auto[
+![](exploded_examples_files/figure-html/geom_ring_5_auto_03_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+### geom_ring
+.panel1-geom_ring_5-auto[
+
+```r
+# without function
+library(ggplot2)
+ggplot(cars) +
+  aes(x = speed, y = dist) +
+* geom_ring(size = 7, color = "slateblue")
+```
+]
+ 
+.panel2-geom_ring_5-auto[
+![](exploded_examples_files/figure-html/geom_ring_5_auto_04_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+### geom_ring
+.panel1-geom_ring_5-auto[
+
+```r
+# without function
+library(ggplot2)
+ggplot(cars) +
+  aes(x = speed, y = dist) +
+  geom_ring(size = 7, color = "slateblue")
+*geom_ring
+```
+]
+ 
+.panel2-geom_ring_5-auto[
+![](exploded_examples_files/figure-html/geom_ring_5_auto_05_output-1.png)&lt;!-- --&gt;
+
+```
+function(...)  {
+  geom_point(shape = 21, ...)
+}
+&lt;bytecode: 0x7fe8d75c88b8&gt;
+&lt;environment: namespace:ggdirect&gt;
+```
+]
+
+&lt;style&gt;
+.panel1-geom_ring_5-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-geom_ring_5-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-geom_ring_5-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+
+
+---
+
+count: false
+ 
+### text_count_percentage
+.panel1-text_count_percentage_6-auto[
+
+```r
+*library(ggplot2)
+```
+]
+ 
+.panel2-text_count_percentage_6-auto[
+
+]
+
+---
+count: false
+ 
+### text_count_percentage
+.panel1-text_count_percentage_6-auto[
+
+```r
+library(ggplot2)
+*ggplot(mtcars)
+```
+]
+ 
+.panel2-text_count_percentage_6-auto[
+![](exploded_examples_files/figure-html/text_count_percentage_6_auto_02_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+### text_count_percentage
+.panel1-text_count_percentage_6-auto[
+
+```r
+library(ggplot2)
+ggplot(mtcars) +
+*   aes(x = cyl)
+```
+]
+ 
+.panel2-text_count_percentage_6-auto[
+![](exploded_examples_files/figure-html/text_count_percentage_6_auto_03_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+### text_count_percentage
+.panel1-text_count_percentage_6-auto[
+
+```r
+library(ggplot2)
+ggplot(mtcars) +
+    aes(x = cyl) +
+*   geom_bar()
+```
+]
+ 
+.panel2-text_count_percentage_6-auto[
+![](exploded_examples_files/figure-html/text_count_percentage_6_auto_04_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+### text_count_percentage
+.panel1-text_count_percentage_6-auto[
+
+```r
+library(ggplot2)
+ggplot(mtcars) +
+    aes(x = cyl) +
+    geom_bar() +
+*   geom_text_count_percent(nudge_y = .5)
+```
+]
+ 
+.panel2-text_count_percentage_6-auto[
+![](exploded_examples_files/figure-html/text_count_percentage_6_auto_05_output-1.png)&lt;!-- --&gt;
+]
+
+&lt;style&gt;
+.panel1-text_count_percentage_6-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-text_count_percentage_6-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-text_count_percentage_6-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+
+
+---
+
+count: false
+ 
+### text_count
+.panel1-text_count_7-auto[
+
+```r
+*library(ggplot2)
+```
+]
+ 
+.panel2-text_count_7-auto[
+
+]
+
+---
+count: false
+ 
+### text_count
+.panel1-text_count_7-auto[
+
+```r
+library(ggplot2)
+*ggplot(mtcars)
+```
+]
+ 
+.panel2-text_count_7-auto[
+![](exploded_examples_files/figure-html/text_count_7_auto_02_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+### text_count
+.panel1-text_count_7-auto[
+
+```r
+library(ggplot2)
+ggplot(mtcars) +
+*  aes(x = cyl)
+```
+]
+ 
+.panel2-text_count_7-auto[
+![](exploded_examples_files/figure-html/text_count_7_auto_03_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+### text_count
+.panel1-text_count_7-auto[
+
+```r
+library(ggplot2)
+ggplot(mtcars) +
+   aes(x = cyl) +
+*  geom_bar()
+```
+]
+ 
+.panel2-text_count_7-auto[
+![](exploded_examples_files/figure-html/text_count_7_auto_04_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+### text_count
+.panel1-text_count_7-auto[
+
+```r
+library(ggplot2)
+ggplot(mtcars) +
+   aes(x = cyl) +
+   geom_bar() +
+*  geom_text_count(nudge_y = .5)
+```
+]
+ 
+.panel2-text_count_7-auto[
+![](exploded_examples_files/figure-html/text_count_7_auto_05_output-1.png)&lt;!-- --&gt;
+]
+
+&lt;style&gt;
+.panel1-text_count_7-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-text_count_7-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-text_count_7-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

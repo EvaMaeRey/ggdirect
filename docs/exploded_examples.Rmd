@@ -1,0 +1,142 @@
+---
+title: ggdirect
+subtitle: ""
+author: "Exploded Examples"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: [default, hygge, ninjutsu]
+    nature:
+      ratio: 16:9
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = TRUE, message = F, warning = F, fig.height = 6, comment = "")
+options(knitr.duplicate.label = "allow")
+library(ggdirect)
+```
+
+
+---
+
+`r flipbookr::chunk_reveal('geom_bubble_1', title = '### geom_bubble')`
+
+```{r geom_bubble_1, include = F}
+# using function
+library(ggplot2)
+ggplot(cars) +
+  aes(x = speed, y = dist) +
+  geom_bubble(size = 7,
+    alpha = .85,
+    color = "white",
+    fill = "plum2"
+   ) +
+ theme_minimal()
+```
+
+
+
+---
+
+`r flipbookr::chunk_reveal('geom_bubble_2', title = '### geom_bubble')`
+
+```{r geom_bubble_2, include = F}
+# without function
+library(ggplot2)
+ggplot(cars) +
+  aes(x = speed, y = dist) +
+  geom_point(shape = 21,size = 7,
+    alpha = .85,
+    color = "white",
+    fill = "plum2")
+ geom_bubble
+```
+
+
+
+---
+
+`r flipbookr::chunk_reveal('geom_line_endpoint_3', title = '### geom_line_endpoint')`
+
+```{r geom_line_endpoint_3, include = F}
+# functions
+ggdirect:::StatLineendpoint
+geom_line_endpoint
+library(ggplot2)
+ggplot(cars) +
+   aes(x = speed, y = dist) +
+   geom_line() +
+   geom_line_endpoint()
+ggplot(cars) +
+    aes(x = speed, y = dist, color = dist > 15) +
+    geom_line() +
+    geom_line_endpoint()
+ggplot(cars) +
+     aes(x = speed, y = dist,
+         color = dist > 15,
+         linetype = speed > 16) +
+     geom_line() +
+     geom_line_endpoint()
+```
+
+
+
+---
+
+`r flipbookr::chunk_reveal('geom_ring_4', title = '### geom_ring')`
+
+```{r geom_ring_4, include = F}
+# using function
+library(ggplot2)
+ggplot(cars) +
+  aes(x = speed, y = dist) +
+  geom_ring(size = 7, color = "slateblue")
+```
+
+
+
+---
+
+`r flipbookr::chunk_reveal('geom_ring_5', title = '### geom_ring')`
+
+```{r geom_ring_5, include = F}
+# without function
+library(ggplot2)
+ggplot(cars) +
+  aes(x = speed, y = dist) +
+  geom_ring(size = 7, color = "slateblue")
+ geom_ring
+```
+
+
+
+---
+
+`r flipbookr::chunk_reveal('text_count_percentage_6', title = '### text_count_percentage')`
+
+```{r text_count_percentage_6, include = F}
+library(ggplot2)
+ggplot(mtcars) +
+    aes(x = cyl) +
+    geom_bar() +
+    geom_text_count_percent(nudge_y = .5)
+```
+
+
+
+---
+
+`r flipbookr::chunk_reveal('text_count_7', title = '### text_count')`
+
+```{r text_count_7, include = F}
+library(ggplot2)
+ggplot(mtcars) +
+   aes(x = cyl) +
+   geom_bar() +
+   geom_text_count(nudge_y = .5)
+```
+
+

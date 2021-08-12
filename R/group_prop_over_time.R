@@ -59,8 +59,6 @@ geom_tile_prop_over_time <- function(mapping = NULL, data = NULL,
 }
 
 
-
-
 StatPropovertimetext <- ggplot2::ggproto("StatPropovertimetext",
                                      ggplot2::Stat,
                                      compute_panel = function(data, scales) {
