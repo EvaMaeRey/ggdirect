@@ -27,10 +27,11 @@ Title
 library(ggplot2)
 library(magrittr)
 gapminder::gapminder \%>\%
+dplyr::mutate(gdp = gdpPercap * pop) \%>\%
 ggplot() +
   aes(x = year) +
   aes(y = continent) +
   geom_tile_prop_over_time() +
-  aes(fill = pop) +
+  aes(fill = gdp) +
   scale_fill_viridis_c()
 }

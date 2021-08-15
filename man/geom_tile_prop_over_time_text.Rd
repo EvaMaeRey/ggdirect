@@ -27,25 +27,27 @@ Title
 library(ggplot2)
 library(magrittr)
 gapminder::gapminder \%>\%
+dplyr::mutate(gdp = gdpPercap * pop) \%>\%
 ggplot() +
   aes(x = year) +
   aes(y = continent) +
   geom_tile_prop_over_time() +
-  aes(fill = pop) +
+  aes(fill = gdp) +
   scale_fill_viridis_c() +
-  aes(label = pop) +
+  aes(label = gdp) +
   geom_tile_prop_over_time_text()
 
 gapminder::gapminder \%>\%
+dplyr::mutate(gdp = gdpPercap * pop) \%>\%
 ggplot() +
   aes(x = year) +
   aes(y = continent) +
   geom_tile_prop_over_time() +
-  aes(fill = pop) +
+  aes(fill = gdp) +
   scale_fill_viridis_c() +
-  aes(label = pop) +
+  aes(label = gdp) +
   geom_tile_prop_over_time_text() +
-  facet_wrap(facets = vars(gdpPercap > 10000))
+  facet_wrap(facets = vars(pop > 1000000))
 
 gapminder::gapminder \%>\%
 ggplot() +
@@ -54,6 +56,9 @@ ggplot() +
   aes(fill = 1, label = 1) + # use 1 to count times continent is observed
   geom_tile_prop_over_time(color = "oldlace") +
   labs(fill = "proportion\nof countries\nin each time\nperiod") +
-  geom_tile_prop_over_time_text()
+  geom_tile_prop_over_time_text(size = 3) +
+  facet_wrap(facets = vars(ifelse(gdpPercap > 10000,
+  "gdp per cap > 10000", "gdp per cap < 10000"))) +
+  scale_fill_viridis_c()
 
 }
