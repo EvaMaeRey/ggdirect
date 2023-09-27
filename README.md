@@ -1,5 +1,5 @@
 
-  - [ggdirect](#ggdirect)
+  - [ggdirect (probably to ggbarlabs)](#ggdirect-probably-to-ggbarlabs)
   - [Problem:](#problem)
       - [bar charts are ubiquitous and can quickly communicate
         information.](#bar-charts-are-ubiquitous-and-can-quickly-communicate-information)
@@ -7,18 +7,25 @@
         labeling](#bar-plots-can-benefit-from-specificity-of-labeling)
       - [but its a pain](#but-its-a-pain)
       - [or use verbose afterstat…](#or-use-verbose-afterstat)
+          - [first inspecting bar layer](#first-inspecting-bar-layer)
       - [Proposed User interface](#proposed-user-interface)
       - [Composing functions](#composing-functions)
           - [geom\_text\_count](#geom_text_count)
           - [Try it out](#try-it-out)
           - [geom\_text\_count\_percent](#geom_text_count_percent)
           - [Try it out](#try-it-out-1)
+  - [Furthermore, a different set of thematic defaults make sense for
+    labeled bar
+    charts.](#furthermore-a-different-set-of-thematic-defaults-make-sense-for-labeled-bar-charts)
+  - [lets put all of this in
+    `ggbarlabs()`](#lets-put-all-of-this-in-ggbarlabs)
+      - [Notes:](#notes)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="50%" />
 
-# ggdirect
+# ggdirect (probably to ggbarlabs)
 
 <!-- badges: start -->
 
@@ -53,6 +60,8 @@ vizualization with all the specificity of a table.
 either precalc…
 
 ## or use verbose afterstat…
+
+### first inspecting bar layer
 
 ``` r
 layer_data(last_plot(), 1)
@@ -250,3 +259,57 @@ last_plot() +
 ```
 
 <img src="man/figures/README-unnamed-chunk-10-2.png" width="50%" />
+
+# Furthermore, a different set of thematic defaults make sense for labeled bar charts.
+
+``` r
+ggplot(mtcars) +
+  aes(x = factor(cyl)) +
+  geom_bar(position = "dodge") +
+  geom_text_count(nudge_y = .2) +
+  theme_classic() +
+  theme(axis.line.y = element_blank(),
+        axis.text.y.right = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.y = element_blank(),
+        panel.grid.major.y = element_line(color = alpha("gray35", .25)),
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        axis.line.x = element_line(colour = "gray35")) +
+  scale_y_continuous(expand = expansion(mult = c(0, .1)))
+```
+
+<img src="man/figures/README-unnamed-chunk-11-1.png" width="50%" />
+
+# lets put all of this in `ggbarlabs()`
+
+``` r
+ggbarlabs <- function(data = NULL, ...){
+  ggplot(data= data , ... ) +
+  theme_classic(base_size = 15) +
+  theme(axis.line.y = element_blank(),
+        axis.text.y.right = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.y = element_blank(),
+        panel.grid.major.y = element_line(color = alpha("gray35", .25)),
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        axis.line.x = element_line(colour = "gray35")) +
+  scale_y_continuous(expand = expansion(mult = c(0, .15)))
+}
+```
+
+``` r
+ggbarlabs(mtcars) + 
+  aes(x = factor(am)) + 
+  geom_bar(fill = "cadetblue") + 
+  geom_text_count_percent()
+```
+
+<img src="man/figures/README-unnamed-chunk-13-1.png" width="50%" />
+
+## Notes:
+
+  - vjust may give us better results than nudge\_y…
