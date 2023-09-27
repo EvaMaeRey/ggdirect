@@ -55,7 +55,7 @@ ggcanvas() +
   theme_void()
 ```
 
-# ggdirect (probably to ggbarlabs)
+# ggdirect (probably moving to ggbarlabs)
 
 <!-- badges: start -->
 <!-- badges: end -->
@@ -261,7 +261,7 @@ last_plot() +
 ```
 
 
-# Furthermore, a different set of thematic defaults make sense for labeled bar charts.
+# Furthermore, a different set of thematic and scale defaults make sense for labeled bar charts
 
 
 ```{r}
@@ -302,11 +302,18 @@ ggbarlabs <- function(data = NULL, ...){
 }
 ```
 
+## try it out
 
 ```{r}
 ggbarlabs(mtcars) + 
   aes(x = factor(am)) + 
-  geom_bar(fill = "cadetblue") + 
+  geom_bar(fill = alpha("navy", .9)) + 
+  geom_text_count_percent()
+
+
+ggbarlabs(mtcars) + 
+  aes(x = factor(am), fill = factor(cyl)) + 
+  geom_bar(position = "dodge") + 
   geom_text_count_percent()
 
 
@@ -315,6 +322,10 @@ ggbarlabs(mtcars) +
 
 
 
-## Notes:
+## Issues
 
-- vjust may give us better results than nudge_y... 
+### vjust may give us better results than nudge_y... 
+### move ggbarlabs()
+### percents is calculated within panel.  We might want to specify the 'whole' from which percentage is calculated.
+
+

@@ -1,5 +1,6 @@
 
-  - [ggdirect (probably to ggbarlabs)](#ggdirect-probably-to-ggbarlabs)
+  - [ggdirect (probably moving to
+    ggbarlabs)](#ggdirect-probably-moving-to-ggbarlabs)
   - [Problem:](#problem)
       - [bar charts are ubiquitous and can quickly communicate
         information.](#bar-charts-are-ubiquitous-and-can-quickly-communicate-information)
@@ -14,18 +15,25 @@
           - [Try it out](#try-it-out)
           - [geom\_text\_count\_percent](#geom_text_count_percent)
           - [Try it out](#try-it-out-1)
-  - [Furthermore, a different set of thematic defaults make sense for
-    labeled bar
-    charts.](#furthermore-a-different-set-of-thematic-defaults-make-sense-for-labeled-bar-charts)
+  - [Furthermore, a different set of thematic and scale defaults make
+    sense for labeled bar
+    charts](#furthermore-a-different-set-of-thematic-and-scale-defaults-make-sense-for-labeled-bar-charts)
   - [lets put all of this in
     `ggbarlabs()`](#lets-put-all-of-this-in-ggbarlabs)
-      - [Notes:](#notes)
+      - [try it out](#try-it-out-2)
+      - [Issues](#issues)
+          - [vjust may give us better results than
+            nudge\_y…](#vjust-may-give-us-better-results-than-nudge_y)
+          - [move ggbarlabs()](#move-ggbarlabs)
+          - [percents is calculated within panel. We might want to
+            specify the ‘whole’ from which percentage is
+            calculated.](#percents-is-calculated-within-panel-we-might-want-to-specify-the-whole-from-which-percentage-is-calculated)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="50%" />
 
-# ggdirect (probably to ggbarlabs)
+# ggdirect (probably moving to ggbarlabs)
 
 <!-- badges: start -->
 
@@ -260,7 +268,7 @@ last_plot() +
 
 <img src="man/figures/README-unnamed-chunk-10-2.png" width="50%" />
 
-# Furthermore, a different set of thematic defaults make sense for labeled bar charts.
+# Furthermore, a different set of thematic and scale defaults make sense for labeled bar charts
 
 ``` r
 ggplot(mtcars) +
@@ -301,15 +309,32 @@ ggbarlabs <- function(data = NULL, ...){
 }
 ```
 
+## try it out
+
 ``` r
 ggbarlabs(mtcars) + 
   aes(x = factor(am)) + 
-  geom_bar(fill = "cadetblue") + 
+  geom_bar(fill = alpha("navy", .9)) + 
   geom_text_count_percent()
 ```
 
 <img src="man/figures/README-unnamed-chunk-13-1.png" width="50%" />
 
-## Notes:
+``` r
 
-  - vjust may give us better results than nudge\_y…
+
+ggbarlabs(mtcars) + 
+  aes(x = factor(am), fill = factor(cyl)) + 
+  geom_bar(position = "dodge") + 
+  geom_text_count_percent()
+```
+
+<img src="man/figures/README-unnamed-chunk-13-2.png" width="50%" />
+
+## Issues
+
+### vjust may give us better results than nudge\_y…
+
+### move ggbarlabs()
+
+### percents is calculated within panel. We might want to specify the ‘whole’ from which percentage is calculated.
