@@ -69,7 +69,7 @@ StatPropovertimetext <- ggplot2::ggproto("StatPropovertimetext",
                                          dplyr::summarise(fill = sum(fill)) %>%
                                          dplyr::mutate(fill = fill/sum(fill)) %>%
                                          dplyr::ungroup() %>%
-                                         dplyr::mutate(label = fill %>% round(2))
+                                         dplyr::mutate(label = paste0(100*fill %>% round(2), "%"))
 
                                      },
 
@@ -124,7 +124,8 @@ StatPropovertimetext <- ggplot2::ggproto("StatPropovertimetext",
 #'   labs(fill = "proportion\nof countries\nin each time\nperiod") +
 #'   geom_tile_prop_over_time_text(size = 3) +
 #'   facet_wrap(facets = vars(ifelse(gdpPercap > 10000,
-#'   "gdp per cap > 10000", "gdp per cap < 10000"))) +
+#'   "gdp per cap > 10000", "gdp per cap < 10000")),
+#'   ncol = 1) +
 #'   scale_fill_viridis_c()
 #'
 geom_tile_prop_over_time_text <- function(mapping = NULL, data = NULL,
