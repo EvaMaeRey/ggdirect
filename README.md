@@ -1,14 +1,16 @@
 
-  - [ggdirect (probably moving to
-    ggbarlabs)](#ggdirect-probably-moving-to-ggbarlabs)
+  - [ggdirect (likely to be superceded by
+    ggbarlabs)](#ggdirect-likely-to-be-superceded-by-ggbarlabs)
   - [Problem:](#problem)
       - [bar charts are ubiquitous and can quickly communicate
         information.](#bar-charts-are-ubiquitous-and-can-quickly-communicate-information)
       - [bar plots can benefit from specificity of
         labeling](#bar-plots-can-benefit-from-specificity-of-labeling)
       - [but its a pain](#but-its-a-pain)
-      - [or use verbose afterstat…](#or-use-verbose-afterstat)
-          - [first inspecting bar layer](#first-inspecting-bar-layer)
+      - [or use verbose after\_stat…](#or-use-verbose-after_stat)
+          - [first inspecting bar layer
+            (stat\_count)](#first-inspecting-bar-layer-stat_count)
+          - [then plot](#then-plot)
       - [Proposed User interface](#proposed-user-interface)
       - [Composing functions](#composing-functions)
           - [geom\_text\_count](#geom_text_count)
@@ -28,12 +30,13 @@
           - [percents is calculated within panel. We might want to
             specify the ‘whole’ from which percentage is
             calculated.](#percents-is-calculated-within-panel-we-might-want-to-specify-the-whole-from-which-percentage-is-calculated)
+          - [horizontal bars](#horizontal-bars)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="50%" />
 
-# ggdirect (probably moving to ggbarlabs)
+# ggdirect (likely to be superceded by ggbarlabs)
 
 <!-- badges: start -->
 
@@ -65,11 +68,11 @@ vizualization with all the specificity of a table.
 
 ## but its a pain
 
-either precalc…
+either precalc and use geom\_col + geom\_text
 
-## or use verbose afterstat…
+## or use verbose after\_stat…
 
-### first inspecting bar layer
+### first inspecting bar layer (stat\_count)
 
 ``` r
 layer_data(last_plot(), 1)
@@ -79,7 +82,14 @@ layer_data(last_plot(), 1)
 #>   linewidth linetype alpha
 #> 1       0.5        1    NA
 #> 2       0.5        1    NA
+```
 
+### then plot
+
+using our knowledge of what data frame results when using StatCount,
+refer to the computed var, count
+
+``` r
 # count column can be used via after_stat
 p +
   geom_text(stat = StatCount, 
@@ -87,7 +97,7 @@ p +
             vjust = -.7)
 ```
 
-<img src="man/figures/README-unnamed-chunk-6-1.png" width="50%" />
+<img src="man/figures/README-unnamed-chunk-7-1.png" width="50%" />
 
 ``` r
 
@@ -99,7 +109,7 @@ p +
             vjust = -.7)
 ```
 
-<img src="man/figures/README-unnamed-chunk-6-2.png" width="50%" />
+<img src="man/figures/README-unnamed-chunk-7-2.png" width="50%" />
 
 ``` r
 
@@ -111,7 +121,7 @@ p +
             vjust = -.5, lineheight = .8)
 ```
 
-<img src="man/figures/README-unnamed-chunk-6-3.png" width="50%" />
+<img src="man/figures/README-unnamed-chunk-7-3.png" width="50%" />
 
 ``` r
 
@@ -188,7 +198,7 @@ ggplot(mtcars) +
    geom_text_count(nudge_y = .2)
 ```
 
-<img src="man/figures/README-unnamed-chunk-8-1.png" width="50%" />
+<img src="man/figures/README-unnamed-chunk-9-1.png" width="50%" />
 
 ``` r
 
@@ -196,7 +206,7 @@ last_plot() +
   aes(fill = factor(am))
 ```
 
-<img src="man/figures/README-unnamed-chunk-8-2.png" width="50%" />
+<img src="man/figures/README-unnamed-chunk-9-2.png" width="50%" />
 
 ### geom\_text\_count\_percent
 
@@ -258,7 +268,7 @@ ggplot(mtcars) +
 #> generated.
 ```
 
-<img src="man/figures/README-unnamed-chunk-10-1.png" width="50%" />
+<img src="man/figures/README-unnamed-chunk-11-1.png" width="50%" />
 
 ``` r
 
@@ -266,7 +276,7 @@ last_plot() +
     aes(fill = factor(am))
 ```
 
-<img src="man/figures/README-unnamed-chunk-10-2.png" width="50%" />
+<img src="man/figures/README-unnamed-chunk-11-2.png" width="50%" />
 
 # Furthermore, a different set of thematic and scale defaults make sense for labeled bar charts
 
@@ -284,11 +294,13 @@ ggplot(mtcars) +
         panel.grid.major.y = element_line(color = alpha("gray35", .25)),
         panel.grid.major.x = element_blank(),
         panel.grid.minor.x = element_blank(),
-        axis.line.x = element_line(colour = "gray35")) +
+        axis.line.x = element_line(colour = "gray35"),
+        legend.position = "top",
+        legend.justification = 0) +
   scale_y_continuous(expand = expansion(mult = c(0, .1)))
 ```
 
-<img src="man/figures/README-unnamed-chunk-11-1.png" width="50%" />
+<img src="man/figures/README-unnamed-chunk-12-1.png" width="50%" />
 
 # lets put all of this in `ggbarlabs()`
 
@@ -304,7 +316,9 @@ ggbarlabs <- function(data = NULL, ...){
         panel.grid.major.y = element_line(color = alpha("gray35", .25)),
         panel.grid.major.x = element_blank(),
         panel.grid.minor.x = element_blank(),
-        axis.line.x = element_line(colour = "gray35")) +
+        axis.line.x = element_line(colour = "gray35"),
+        legend.position = "top",
+        legend.justification = 0) +
   scale_y_continuous(expand = expansion(mult = c(0, .15)))
 }
 ```
@@ -318,7 +332,7 @@ ggbarlabs(mtcars) +
   geom_text_count_percent()
 ```
 
-<img src="man/figures/README-unnamed-chunk-13-1.png" width="50%" />
+<img src="man/figures/README-unnamed-chunk-14-1.png" width="50%" />
 
 ``` r
 
@@ -329,7 +343,7 @@ ggbarlabs(mtcars) +
   geom_text_count_percent()
 ```
 
-<img src="man/figures/README-unnamed-chunk-13-2.png" width="50%" />
+<img src="man/figures/README-unnamed-chunk-14-2.png" width="50%" />
 
 ## Issues
 
@@ -338,3 +352,5 @@ ggbarlabs(mtcars) +
 ### move ggbarlabs()
 
 ### percents is calculated within panel. We might want to specify the ‘whole’ from which percentage is calculated.
+
+### horizontal bars

@@ -55,7 +55,7 @@ ggcanvas() +
   theme_void()
 ```
 
-# ggdirect (probably moving to ggbarlabs)
+# ggdirect (likely to be superceded by ggbarlabs)
 
 <!-- badges: start -->
 <!-- badges: end -->
@@ -89,21 +89,27 @@ Labeled bar chart is all the fast communication of traditional data vizualizatio
 
 ## but its a pain 
 
-either precalc...
+either precalc and use geom_col + geom_text
 
 ```{r}
 
 
 ```
 
-## or use verbose afterstat...
+## or use verbose after_stat...
 
 
-### first inspecting bar layer
+### first inspecting bar layer (stat_count)
 
 ```{r}
 layer_data(last_plot(), 1)
+```
 
+### then plot
+
+using our knowledge of what data frame results when using StatCount, refer to the computed var, count
+
+```{r}
 # count column can be used via after_stat
 p +
   geom_text(stat = StatCount, 
@@ -278,7 +284,9 @@ ggplot(mtcars) +
         panel.grid.major.y = element_line(color = alpha("gray35", .25)),
         panel.grid.major.x = element_blank(),
         panel.grid.minor.x = element_blank(),
-        axis.line.x = element_line(colour = "gray35")) +
+        axis.line.x = element_line(colour = "gray35"),
+        legend.position = "top",
+        legend.justification = 0) +
   scale_y_continuous(expand = expansion(mult = c(0, .1)))
 ```
 
@@ -297,7 +305,9 @@ ggbarlabs <- function(data = NULL, ...){
         panel.grid.major.y = element_line(color = alpha("gray35", .25)),
         panel.grid.major.x = element_blank(),
         panel.grid.minor.x = element_blank(),
-        axis.line.x = element_line(colour = "gray35")) +
+        axis.line.x = element_line(colour = "gray35"),
+        legend.position = "top",
+        legend.justification = 0) +
   scale_y_continuous(expand = expansion(mult = c(0, .15)))
 }
 ```
@@ -327,5 +337,5 @@ ggbarlabs(mtcars) +
 ### vjust may give us better results than nudge_y... 
 ### move ggbarlabs()
 ### percents is calculated within panel.  We might want to specify the 'whole' from which percentage is calculated.
-
+### horizontal bars
 
